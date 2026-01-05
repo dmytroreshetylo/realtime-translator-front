@@ -9,11 +9,24 @@ header {
   padding: 0 1rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 header span {
   font-size: 1.25rem;
   font-weight: bold;
   color: white;
+}
+
+.fade-container {
+  transition: opacity 0.5s ease;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
 }
 
 body {

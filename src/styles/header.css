@@ -4,6 +4,7 @@ header {
   padding: 0 1rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 header span {
   font-size: 1.25rem;

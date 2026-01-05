@@ -5,17 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c8df073-ad84-4cf4-a379-b50ad5a84c94" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/translate-page/translate-page.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/translate-page/translate-page.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/field.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/models/animate-text-change.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/utils/animate-text-change.util.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/utils/random-number.util.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/fade-in-out.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/fade-in-out.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/random-text/random-text.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/header.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
