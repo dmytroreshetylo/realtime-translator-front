@@ -1,0 +1,24 @@
+@use 'src/styles/variables';
+@use 'src/styles/mixins';
+@use 'src/styles/field';
+@use 'src/styles/header';
+
+body {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.media-screen('max', variables.$min-table-width) {
+    font-size: 14px;
+  }
+
+  main {
+    padding: 0 2rem;
+    flex: 1;
+  }
+}
