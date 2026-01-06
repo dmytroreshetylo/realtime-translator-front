@@ -3,11 +3,19 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
+  max-width: 40rem;
+  width: 100%;
+  margin: 0 auto 3rem;
 
   section {
     gap: 2rem;
     display: flex;
     justify-content: space-between;
+    width: 100%;
+
+    & > div {
+      flex: 1;
+    }
   }
 }

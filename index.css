@@ -16,6 +16,16 @@ header span {
   font-weight: bold;
   color: white;
 }
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+  header span {
+    font-size: 1rem;
+  }
+}
 
 .fade-container {
   transition: opacity 0.5s ease;
@@ -29,20 +39,40 @@ header span {
   opacity: 1;
 }
 
-body {
+textarea {
+  resize: none;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
   font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   height: 100vh;
   display: flex;
   flex-direction: column;
-}
-@media screen and (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
 }
 body main {
   padding: 0 2rem;

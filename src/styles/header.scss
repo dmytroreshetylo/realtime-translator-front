@@ -1,3 +1,6 @@
+@use 'mixins';
+@use 'variables';
+
 header {
   background: deepskyblue;
   height: 3rem;
@@ -10,5 +13,15 @@ header {
     font-size: 1.25rem;
     font-weight: bold;
     color: white;
+  }
+
+  @include mixins.media-screen('max', variables.$min-table-width) {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    span {
+      font-size: 1rem;
+    }
   }
 }

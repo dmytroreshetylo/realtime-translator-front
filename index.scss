@@ -3,20 +3,28 @@
 @use 'src/styles/field';
 @use 'src/styles/header';
 @use 'src/styles/fade-in-out';
+@use 'src/styles/textarea';
+@use 'src/styles/basic-styles';
 
-body {
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
+* {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+}
+
+html {
+  font-size: 16px;
 
   @include mixins.media-screen('max', variables.$min-table-width) {
     font-size: 14px;
   }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   main {
     padding: 0 2rem;

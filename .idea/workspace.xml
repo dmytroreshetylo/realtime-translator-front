@@ -4,21 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c8df073-ad84-4cf4-a379-b50ad5a84c94" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/models/animate-text-change.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/utils/animate-text-change.util.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/utils/random-number.util.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/fade-in-out.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/fade-in-out.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/random-text/random-text.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="3c8df073-ad84-4cf4-a379-b50ad5a84c94" name="Changes" comment="added slogans component">
+      <change afterPath="$PROJECT_DIR$/src/features/translate-page/application/provide-view.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/translate-page/application/store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/translate-page/page.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/translate-page/shared/constants.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/basic-styles.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/textarea.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/translate-page/translate-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/translate-page/page.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/translate-page/translate-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/translate-page/page.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/translate-page/translate-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/translate-page/application/provide-listeners.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,29 +59,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/bandapixels/WebstormProjects/realtime-translator-front/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature/third-task",
+    "last_opened_file_path": "/Users/bandapixels/WebstormProjects/realtime-translator-front/src/features/translate-page/application",
+    "list.type.of.created.stylesheet": "SCSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/bandapixels/WebstormProjects/realtime-translator-front/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/features/translate-page/application" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/features/translate-page/application" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/styles" />
       <recent name="$PROJECT_DIR$/src/features/translate-page/styles" />
-      <recent name="$PROJECT_DIR$/src/features/translate-page" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -98,6 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1767568957758</updated>
       <workItem from="1767568959259" duration="4374000" />
+      <workItem from="1767729540082" duration="3016000" />
     </task>
     <servers />
   </component>
