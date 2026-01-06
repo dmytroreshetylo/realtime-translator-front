@@ -3,8 +3,9 @@
 
 header {
   background: deepskyblue;
-  height: 3rem;
-  padding: 0 1rem;
+  min-height: 3rem;
+  height: fit-content;
+  padding: 0.25rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

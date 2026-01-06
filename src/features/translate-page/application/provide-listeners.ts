@@ -3,6 +3,8 @@ import { TranslatePageElementIds } from '../shared/constants.ts';
 import { languageService } from '../../../domain/languages/language.service.ts';
 import { getLanguageOptions } from '../shared/get-language-options.util.ts';
 import { removeEmptyLanguage } from '../shared/remove-empty-language.util.ts';
+import { historyService } from '../../../domain/history/history.service.ts';
+import { debounce } from '../../../shared/utils/debounce-time.util.ts';
 
 export function provideTranslatePageListeners(app: Element) {
   const autoTranslateCheckbox = app.querySelector(`#${TranslatePageElementIds.AutoTranslateCheckbox}`);
@@ -17,6 +19,33 @@ export function provideTranslatePageListeners(app: Element) {
     const availableLanguages = languages.filter(l => l.code !== exceptCode);
 
     el.innerHTML = getLanguageOptions(availableLanguages, selected);
+  }
+
+  const handleTranslate = debounce(() => {
+    if(!TranslatePageStore.selectedOriginalLanguage || !TranslatePageStore.selectedTranslateLanguage) {
+      alert('Будь ласка, оберіть мову оригіналу та перекладу');
+      return;
+    }
+
+    if(!TranslatePageStore.originalText.trim()) {
+      alert('Будь ласка, введіть текст для перекладу');
+      return;
+    }
+
+    // TODO: Replace with real translated text
+    historyService.addHistory({
+      originalLanguage: TranslatePageStore.selectedOriginalLanguage,
+      translatedLanguage: TranslatePageStore.selectedTranslateLanguage,
+      originalText: TranslatePageStore.originalText,
+      translatedText: 'Перекладений текст'
+    });
+
+    addTranslatedTextToTextarea();
+  }, 300);
+
+  const addTranslatedTextToTextarea = () => {
+    // TODO: Replace with real translated text
+    (translateTextarea as HTMLTextAreaElement).value = 'Перекладений текст';
   }
 
   const createTranslateButton = () => {
@@ -53,8 +82,8 @@ export function provideTranslatePageListeners(app: Element) {
   }
 
   // All handlers
-  const handleButtonSubmit = (event: Event) => {
-    alert('Кнопка перекласти натиснута');
+  const handleButtonSubmit = () => {
+    handleTranslate();
   }
 
   const handleCheckboxChange = (event: Event) => {
@@ -63,17 +92,23 @@ export function provideTranslatePageListeners(app: Element) {
     TranslatePageStore.autoTranslate = target.checked;
 
     if(!TranslatePageStore.autoTranslate) {
-      removeTranslateButton();
-    }
-    else {
       const translateButtonWrapper = createTranslateButton();
 
       app.appendChild(translateButtonWrapper);
     }
+    else {
+      removeTranslateButton();
+    }
   }
 
   const handleOriginalTextChange = (event: Event) => {
-    alert('Теперешній текст для перекладу - ' + (event.target as HTMLTextAreaElement).value);
+    TranslatePageStore.originalText = (event.target as HTMLTextAreaElement).value;
+
+    if(!TranslatePageStore.autoTranslate) {
+      return;
+    }
+
+    handleTranslate();
   }
 
   const handleOriginalLanguageChange = (event: Event) => {
@@ -82,6 +117,12 @@ export function provideTranslatePageListeners(app: Element) {
     removeEmptyLanguage(originalSelect);
 
     provideLanguageOptions(translateSelect, TranslatePageStore.selectedOriginalLanguage, TranslatePageStore.selectedTranslateLanguage);
+
+    if(!TranslatePageStore.autoTranslate) {
+      return;
+    }
+
+    handleTranslate();
   }
 
   const handleTranslateLanguageChange = (event: Event) => {
@@ -90,6 +131,12 @@ export function provideTranslatePageListeners(app: Element) {
     removeEmptyLanguage(translateSelect);
 
     provideLanguageOptions(originalSelect, TranslatePageStore.selectedTranslateLanguage, TranslatePageStore.selectedOriginalLanguage);
+
+    if(!TranslatePageStore.autoTranslate) {
+      return;
+    }
+
+    handleTranslate();
   }
 
   autoTranslateCheckbox.addEventListener('input', handleCheckboxChange);
@@ -100,4 +147,8 @@ export function provideTranslatePageListeners(app: Element) {
   // Provide initial options for language selects
   provideLanguageOptions(originalSelect, TranslatePageStore.selectedTranslateLanguage, TranslatePageStore.selectedOriginalLanguage);
   provideLanguageOptions(translateSelect, TranslatePageStore.selectedOriginalLanguage, TranslatePageStore.selectedTranslateLanguage);
+
+  const translateButtonWrapper = createTranslateButton();
+
+  app.appendChild(translateButtonWrapper);
 }

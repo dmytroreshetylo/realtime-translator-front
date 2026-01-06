@@ -5,6 +5,8 @@
 @use 'src/styles/fade-in-out';
 @use 'src/styles/textarea';
 @use 'src/styles/basic-styles';
+@use 'src/styles/main';
+@use 'src/styles/overrides';
 
 * {
   box-sizing: border-box;

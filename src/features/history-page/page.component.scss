@@ -1,0 +1,27 @@
+main.history-page {
+  margin: 3rem auto;
+  justify-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &:has(.no-history) {
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .history-item, .no-history {
+      width: fit-content;
+    }
+
+    .history-item {
+      border-bottom: 1px solid black;
+    }
+  }
+
+}
