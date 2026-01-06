@@ -1,4 +1,4 @@
-import './translate-page.component.css';
+import './translate-page.component.scss';
 
 function translatePageComponent() {
   const app = document.querySelector('#app');
