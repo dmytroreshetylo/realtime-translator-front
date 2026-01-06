@@ -1,4 +1,4 @@
-import './page.component.css';
+import './page.component.scss';
 
 import { provideTranslatePageView } from './application/provide-view.ts';
 import { provideTranslatePageListeners } from './application/provide-listeners.ts';
