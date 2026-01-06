@@ -3,7 +3,7 @@ import type { HistoryModel } from './history.model.ts';
 export class HistoryService {
   private list: HistoryModel[] = [];
 
-  addHistory(history: Omit<HistoryModel, 'date'>) {
+  addHistory(history: Omit<HistoryModel, 'date'>): void {
     const addHistory: HistoryModel = {
       ...history,
       date: new Date()
@@ -12,7 +12,7 @@ export class HistoryService {
     this.list.push(addHistory);
   }
 
-  removeHistory(history: HistoryModel) {
+  removeHistory(history: HistoryModel): void {
     this.list = this.list.filter(item => item.id !== history.id);
   }
 

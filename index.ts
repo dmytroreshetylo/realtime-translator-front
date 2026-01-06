@@ -1,4 +1,17 @@
 import { RandomTextComponent } from './src/ui/random-text/random-text.component';
+import { routerService } from './src/shared/services/router.service';
+import type { RouterPath } from './src/shared/models/router-path.model';
+
+const routes: RouterPath[] = [
+  {
+    path: '/',
+    loadComponent: () => import('./src/features/translate-page/page.component').then(c => c.translatePageComponent())
+  },
+  {
+    path: '/history',
+    loadComponent: () => import('./src/features/history-page/page.component').then(c => c.historyPageComponent())
+  }
+]
 
 function main() {
   const sloganComponent = document.querySelector('span[is="random-text"]');
@@ -21,6 +34,10 @@ function main() {
   ]
 
   sloganComponent.setItems(slogans);
+
+  routerService.setConfig(routes);
+
+  routerService.init();
 }
 
 main();
