@@ -12,7 +12,7 @@ export class RandomTextComponent extends HTMLSpanElement {
     this.intervalId = setInterval(() => {
       this.currentText = this.defineNewText();
 
-      this.connectedCallback();
+      this.render();
     }, 3000);
   }
 
@@ -34,12 +34,10 @@ export class RandomTextComponent extends HTMLSpanElement {
 
     this.currentText = this.defineNewText();
 
-    this.connectedCallback();
+    this.render();
   }
-
-  connectedCallback() {
-    this.classList.add('fade-container');
-
+  
+  render() {
     animateTextChange({
       element: this,
       showAnimateClass: 'fade-in',
@@ -48,6 +46,12 @@ export class RandomTextComponent extends HTMLSpanElement {
         this.innerHTML = this.currentText;
       }
     })
+  }
+
+  connectedCallback() {
+    this.classList.add('fade-container');
+    
+    this.render();
   }
 
   disconnectedCallback() {
