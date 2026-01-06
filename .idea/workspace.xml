@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c8df073-ad84-4cf4-a379-b50ad5a84c94" name="Changes" comment="refactor random-text component to use render method instead of connectedCallback">
-      <change beforePath="$PROJECT_DIR$/src/features/translate-page/page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/translate-page/page.component.ts" afterDir="false" />
+    <list default="true" id="3c8df073-ad84-4cf4-a379-b50ad5a84c94" name="Changes" comment="refactor: convert page component styles from CSS to SCSS">
+      <change afterPath="$PROJECT_DIR$/src/domain/history/history.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/domain/history/history.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/domain/languages/language.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/domain/languages/language.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/translate-page/shared/get-language-options.util.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/translate-page/shared/remove-empty-language.util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/translate-page/application/provide-listeners.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/translate-page/application/provide-listeners.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/translate-page/application/provide-view.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/translate-page/application/provide-view.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +25,7 @@
       <list>
         <option value="HTML File" />
         <option value="SCSS File" />
+        <option value="tsconfig.json" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -54,7 +63,8 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/third-task",
+    "git-widget-placeholder": "feature/fourth-task",
+    "last_opened_file_path": "/Users/bandapixels/WebstormProjects/realtime-translator-front/src/features/translate-page/application/handlers",
     "list.type.of.created.stylesheet": "SCSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -66,6 +76,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/features/translate-page/application/handlers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
@@ -92,6 +105,15 @@
       <workItem from="1767568959259" duration="4374000" />
       <workItem from="1767734653734" duration="112000" />
     </task>
+    <task id="LOCAL-00001" summary="refactor: convert page component styles from CSS to SCSS">
+      <option name="closed" value="true" />
+      <created>1767734925178</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1767734925178</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,5 +129,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor: convert page component styles from CSS to SCSS" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: convert page component styles from CSS to SCSS" />
   </component>
 </project>

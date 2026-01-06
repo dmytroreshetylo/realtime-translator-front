@@ -10,10 +10,7 @@ export function provideTranslatePageView(app: Element) {
     <section>
       <div class="field-container">
         <label for="${TranslatePageElementIds.SelectOriginalLanguage}">Оберіть мову оригіналу</label>
-        <select id="${TranslatePageElementIds.SelectOriginalLanguage}">
-          <option value="1">English</option>
-          <option value="2">Українська</option>
-        </select>
+        <select id="${TranslatePageElementIds.SelectOriginalLanguage}"></select>
       </div>
       
       <div class="field-container">
