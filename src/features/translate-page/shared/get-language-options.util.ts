@@ -10,7 +10,7 @@ export function getLanguageOptions(languages: LanguageModel[], selected: string)
   });
 
   if(!selected) {
-    options.unshift('<option value="" selected>Виберіть мову</option>');
+    options.unshift('<option value="">Виберіть мову</option>');
   }
 
   return options.join('\n');

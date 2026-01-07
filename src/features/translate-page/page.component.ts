@@ -10,7 +10,7 @@ export function translatePageComponent() {
     throw new Error('App element not found');
   }
 
-  app.classList.add('translate-page', 'main-center', 'main-width');
+  app.classList.add('translate-page', 'main-width');
 
   provideTranslatePageView(app);
 
