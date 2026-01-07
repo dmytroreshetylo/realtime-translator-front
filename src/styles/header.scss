@@ -2,7 +2,7 @@
 @use 'variables';
 
 header {
-  background: deepskyblue;
+  background: var(--bs-info);
   min-height: 3rem;
   height: fit-content;
   padding: 0.25rem 1rem;

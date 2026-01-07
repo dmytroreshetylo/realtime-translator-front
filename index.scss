@@ -8,6 +8,12 @@
 @use 'src/styles/main';
 @use 'src/styles/overrides';
 
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+@import "bootstrap/scss/bootstrap";
+
 * {
   box-sizing: border-box;
 }

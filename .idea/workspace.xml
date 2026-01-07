@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c8df073-ad84-4cf4-a379-b50ad5a84c94" name="Changes" comment="feat: implement debounce utility and enhance history page styles">
+    <list default="true" id="3c8df073-ad84-4cf4-a379-b50ad5a84c94" name="Changes" comment="add form and validation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/translate-page/application/provide-listeners.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/translate-page/application/provide-listeners.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/translate-page/application/provide-view.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/translate-page/application/provide-view.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/translate-page/page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/translate-page/page.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/translate-page/page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/translate-page/page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/translate-page/shared/get-language-options.util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/translate-page/shared/get-language-options.util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/basic-styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/basic-styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/textarea.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/textarea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/textarea.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/fourth-task" />
+        <entry key="$PROJECT_DIR$" value="feature/fiveth-task" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,7 +64,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/fiveth-task",
+    "git-widget-placeholder": "feature/sixth-task",
     "last_opened_file_path": "/Users/bandapixels/WebstormProjects/realtime-translator-front/src/features/history-page",
     "list.type.of.created.stylesheet": "SCSS",
     "node.js.detected.package.eslint": "true",
@@ -127,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767743764348</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add form and validation">
+      <option name="closed" value="true" />
+      <created>1767744890890</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1767744890890</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +160,7 @@
     <MESSAGE value="refactor: convert page component styles from CSS to SCSS" />
     <MESSAGE value="add router service" />
     <MESSAGE value="feat: implement debounce utility and enhance history page styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: implement debounce utility and enhance history page styles" />
+    <MESSAGE value="add form and validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add form and validation" />
   </component>
 </project>
