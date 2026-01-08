@@ -19,7 +19,6 @@ This is the frontend for a real-time text translation web application. It allows
 *   **SCSS:** A preprocessor for styling.
 *   **Bootstrap 5:** Used for UI components (Toasts, Spinners, Pagination) and the grid system.
 *   **Vite:** A modern frontend build and development tool.
-*   **ESLint / Prettier:** For maintaining code quality and a consistent style.
 
 ## 🚀 Getting Started
 
@@ -35,7 +34,7 @@ To run the project locally, follow these steps.
 
 1.  **Clone the repository:**
     ```sh
-    git clone <YOUR_REPOSITORY_URL>
+    git clone <REPOSITORY_URL>
     cd realtime-translator-front
     ```
 
