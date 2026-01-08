@@ -38,6 +38,8 @@ export function provideTranslatePageListeners(app: Element) {
 
     const translatedText = result ?? 'Невідомий переклад';
 
+    console.log(translatedText);
+
     // TODO: Replace with real translated text
     historyService.addHistory({
       originalLanguage: TranslatePageStore.selectedOriginalLanguage,
