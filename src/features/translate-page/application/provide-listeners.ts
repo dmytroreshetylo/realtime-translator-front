@@ -68,7 +68,6 @@ export function provideTranslatePageListeners(app: Element) {
     } catch (error) {
       console.log(error);
       showToast((error as Error).message || 'Помилка перекладу');
-      console.error(error);
     } finally {
       spinner.style.display = 'none';
       buttonText.textContent = 'Перекласти';
