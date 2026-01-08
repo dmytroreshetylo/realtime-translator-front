@@ -82,7 +82,7 @@ export async function historyPageComponent() {
   } catch (error) {
     spinnerHistory.style.display = 'none';
     spinnerLang.style.display = 'none';
-    showToast('Не вдалося завантажити історію.');
+    showToast((error as Error).message || 'Не вдалося завантажити історію.');
     console.error(error);
   }
 }

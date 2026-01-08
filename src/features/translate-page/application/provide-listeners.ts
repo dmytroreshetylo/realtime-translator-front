@@ -3,7 +3,6 @@ import { TranslatePageElementIds } from '../shared/constants.ts';
 import { languageService } from '../../../domain/languages/language.service.ts';
 import { getLanguageOptions } from '../shared/get-language-options.util.ts';
 import { removeEmptyLanguage } from '../shared/remove-empty-language.util.ts';
-import { historyService } from '../../../domain/history/history.service.ts';
 import { debounce } from '../../../shared/utils/debounce-time.util.ts';
 import { translateService } from '../../../domain/translate/translate.service.ts';
 import { Toast } from 'bootstrap';
@@ -46,12 +45,12 @@ export function provideTranslatePageListeners(app: Element) {
 
   const provideLanguageOptions = (el: Element, exceptCode: string, selected: string) => {
     const languages = languageService.getLanguages();
-    console.log(languages);
     const availableLanguages = languages.filter((l) => l.code !== exceptCode);
     el.innerHTML = getLanguageOptions(availableLanguages, selected);
   };
 
   const handleTranslate = async () => {
+
     spinner.style.display = 'inline-block';
     buttonText.textContent = 'Переклад...';
     translateButton.disabled = true;
@@ -67,7 +66,8 @@ export function provideTranslatePageListeners(app: Element) {
 
       addTranslatedTextToTextarea(translatedText);
     } catch (error) {
-      showToast('Помилка перекладу');
+      console.log(error);
+      showToast((error as Error).message || 'Помилка перекладу');
       console.error(error);
     } finally {
       spinner.style.display = 'none';
@@ -129,8 +129,6 @@ export function provideTranslatePageListeners(app: Element) {
   originalSelect.addEventListener('change', handleOriginalLanguageChange);
   translateSelect.addEventListener('change', handleTranslateLanguageChange);
   form.addEventListener('submit', handleButtonSubmit);
-
-  console.log(1);
 
   provideLanguageOptions(
     originalSelect,
