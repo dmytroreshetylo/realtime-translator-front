@@ -1,3 +1,6 @@
+@use '../../styles/mixins';
+@use '../../styles/variables';
+
 main.translate-page {
   margin: 0 auto 3rem;
   align-items: center;
@@ -5,7 +8,11 @@ main.translate-page {
   width: 100%;
 
   section {
-    gap: 2rem;
+    @include mixins.media-screen('max', variables.$min-table-width) {
+      gap: 0.5rem;
+      flex-direction: column;
+    }
+
     display: flex;
     justify-content: space-between;
     width: 100%;
