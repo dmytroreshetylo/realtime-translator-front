@@ -3,6 +3,8 @@ import { historyService } from '../../domain/history/history.service.ts';
 import { Toast } from 'bootstrap';
 import type { HistoryModel } from '../../domain/history/history.model.ts';
 
+const PAGE_SIZE = 10;
+
 export async function historyPageComponent() {
   const app = document.querySelector('#app');
 
@@ -35,6 +37,9 @@ export async function historyPageComponent() {
       </div>
     </div>
     <ul class="history-list"></ul>
+    <nav>
+      <ul class="pagination"></ul>
+    </nav>
   `;
 
   app.classList.add('history-page', 'main-width');
@@ -47,42 +52,133 @@ export async function historyPageComponent() {
   const spinnerLang = app.querySelector('#spinner-lang') as HTMLElement;
   const mostPopularLangEl = app.querySelector('#most-popular-lang') as HTMLElement;
   const historyListEl = app.querySelector('.history-list') as HTMLElement;
+  const paginationEl = app.querySelector('.pagination') as HTMLElement;
+
+  let currentPage = 1;
+  let totalItems = 0;
 
   const showToast = (message: string) => {
     toastBody.textContent = message;
     toast.show();
   };
 
-  try {
-    const [history, mostPopularLanguage] = await Promise.all([
-      historyService.getHistoryList(0, 1000),
-      historyService.getMostPopularLanguage(),
-    ]);
+  const renderPagination = () => {
+    const totalPages = Math.ceil(totalItems / PAGE_SIZE);
 
-    spinnerHistory.style.display = 'none';
-    spinnerLang.style.display = 'none';
+    paginationEl.innerHTML = '';
 
-    mostPopularLangEl.textContent = mostPopularLanguage || 'Нема даних';
-
-    if (history.items.length) {
-      const historyHtml = history.items
-        .map(
-          (item: HistoryModel) => `
-        <li class="history-item">
-          <p><strong>Оригінал (${item.originalLanguage}):</strong> ${item.originalText}</p>
-          <p><strong>Переклад (${item.translatedLanguage}):</strong> ${item.translatedText}</p>
-        </li>
-      `,
-        )
-        .join('');
-      historyListEl.innerHTML = historyHtml;
-    } else {
-      historyListEl.innerHTML = '<li class="no-history">Нема збережених перекладів.</li>';
+    if(totalPages === 0) {
+      return;
     }
-  } catch (error) {
-    spinnerHistory.style.display = 'none';
-    spinnerLang.style.display = 'none';
-    showToast((error as Error).message || 'Не вдалося завантажити історію.');
-    console.error(error);
-  }
+
+    // Previous button
+    const prevLi = document.createElement('li');
+    prevLi.classList.add('page-item');
+    if (currentPage === 1) {
+      prevLi.classList.add('disabled');
+    }
+    const prevA = document.createElement('a');
+    prevA.classList.add('page-link');
+    prevA.href = '#';
+    prevA.textContent = 'Попередня';
+    prevA.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (currentPage > 1) {
+        currentPage--;
+        loadHistory();
+      }
+    });
+    prevLi.appendChild(prevA);
+    paginationEl.appendChild(prevLi);
+
+    for (let i = 1; i <= totalPages; i++) {
+      const li = document.createElement('li');
+      li.classList.add('page-item');
+      if (i === currentPage) {
+        li.classList.add('active');
+      }
+      const a = document.createElement('a');
+      a.classList.add('page-link');
+      a.href = '#';
+      a.textContent = i.toString();
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentPage = i;
+        loadHistory();
+      });
+      li.appendChild(a);
+      paginationEl.appendChild(li);
+    }
+
+    // Next button
+    const nextLi = document.createElement('li');
+    nextLi.classList.add('page-item');
+    if (currentPage === totalPages) {
+      nextLi.classList.add('disabled');
+    }
+    const nextA = document.createElement('a');
+    nextA.classList.add('page-link');
+    nextA.href = '#';
+    nextA.textContent = 'Наступна';
+    nextA.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (currentPage < totalPages) {
+        currentPage++;
+        loadHistory();
+      }
+    });
+    nextLi.appendChild(nextA);
+    paginationEl.appendChild(nextLi);
+  };
+
+  const loadHistory = async () => {
+    spinnerHistory.style.display = 'block';
+    historyListEl.innerHTML = '';
+
+    try {
+      const from = (currentPage - 1) * PAGE_SIZE;
+      const to = from + PAGE_SIZE;
+      const history = await historyService.getHistoryList(from, to);
+
+      totalItems = history.totalCount;
+      spinnerHistory.style.display = 'none';
+
+      if (history.items.length) {
+        const historyHtml = history.items
+          .map(
+            (item: HistoryModel) => `
+          <li class="history-item">
+            <p><strong>Оригінал (${item.originalLanguage}):</strong> ${item.originalText}</p>
+            <p><strong>Переклад (${item.translatedLanguage}):</strong> ${item.translatedText}</p>
+          </li>
+        `,
+          )
+          .join('');
+        historyListEl.innerHTML = historyHtml;
+      } else {
+        historyListEl.innerHTML = '<li class="no-history">Нема збережених перекладів.</li>';
+      }
+      renderPagination();
+    } catch (error) {
+      spinnerHistory.style.display = 'none';
+      showToast((error as Error).message);
+      console.error(error);
+    }
+  };
+
+  const loadMostPopularLanguage = async () => {
+    spinnerLang.style.display = 'block';
+    try {
+      const mostPopularLanguage = await historyService.getMostPopularLanguage();
+      mostPopularLangEl.textContent = mostPopularLanguage || 'Нема даних';
+    } catch (error) {
+      showToast((error as Error).message);
+      console.error(error);
+    } finally {
+      spinnerLang.style.display = 'none';
+    }
+  };
+
+  loadHistory();
+  loadMostPopularLanguage();
 }
