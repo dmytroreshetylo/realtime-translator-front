@@ -8,17 +8,17 @@ import { translateService } from '../../../domain/translate/translate.service.ts
 import { Toast } from 'bootstrap';
 
 export function provideTranslatePageListeners(app: Element) {
-  const autoTranslateCheckbox = app.querySelector(`#${TranslatePageElementIds.AutoTranslateCheckbox}`);
-  const originalTextarea = app.querySelector(`#${TranslatePageElementIds.OriginalTextarea}`);
-  const originalSelect = app.querySelector(`#${TranslatePageElementIds.SelectOriginalLanguage}`);
-  const translateTextarea = app.querySelector(`#${TranslatePageElementIds.TranslateTextarea}`);
-  const translateSelect = app.querySelector(`#${TranslatePageElementIds.SelectTranslateLanguage}`);
-  const translateButton = app.querySelector('button[type="submit"]');
-  const form = app.querySelector('form');
-  const spinner = translateButton?.querySelector('.spinner-border');
-  const buttonText = translateButton?.querySelector('.button-text');
-  const toastEl = app.querySelector('#toast') ;
-  const toastBody = toastEl?.querySelector('.toast-body');
+  const autoTranslateCheckbox: HTMLInputElement | null = app.querySelector(`#${TranslatePageElementIds.AutoTranslateCheckbox}`);
+  const originalTextarea: HTMLTextAreaElement | null = app.querySelector(`#${TranslatePageElementIds.OriginalTextarea}`);
+  const originalSelect: HTMLSelectElement | null = app.querySelector(`#${TranslatePageElementIds.SelectOriginalLanguage}`);
+  const translateTextarea: HTMLTextAreaElement | null = app.querySelector(`#${TranslatePageElementIds.TranslateTextarea}`);
+  const translateSelect: HTMLSelectElement | null = app.querySelector(`#${TranslatePageElementIds.SelectTranslateLanguage}`);
+  const translateButton: HTMLButtonElement | null = app.querySelector('button[type="submit"]');
+  const form: HTMLFormElement | null = app.querySelector('form');
+  const spinner: HTMLElement | null = translateButton?.querySelector('.spinner-border') as HTMLElement;
+  const buttonText: HTMLElement | null = translateButton?.querySelector('.button-text') as HTMLElement;
+  const toastEl: HTMLElement | null = app.querySelector('#toast');
+  const toastBody: HTMLElement | null = toastEl?.querySelector('.toast-body') as HTMLElement;
 
   if (
     !autoTranslateCheckbox ||
