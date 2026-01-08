@@ -10,10 +10,11 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  span {
+  a, span {
     font-size: 1.25rem;
     font-weight: bold;
     color: white;
+    text-decoration: none;
   }
 
   @include mixins.media-screen('max', variables.$min-table-width) {

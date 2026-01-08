@@ -31,12 +31,16 @@ export async function historyPageComponent() {
       <span id="most-popular-lang" class="ms-2"></span>
     </div>
     
-    <div id="spinner-history" role="status">
-      <div class="spinner-border">
-        <span class="visually-hidden">Loading...</span>
+    <div class="flex-grow-1 overflow-y-auto">
+      <div id="spinner-history" role="status">
+        <div class="spinner-border">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
+      
+      <ul class="history-list"></ul>
     </div>
-    <ul class="history-list"></ul>
+    
     <nav>
       <ul class="pagination"></ul>
     </nav>
