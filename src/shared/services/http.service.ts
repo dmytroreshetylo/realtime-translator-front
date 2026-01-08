@@ -18,7 +18,7 @@ export class HttpService {
     const response = await fetch(url, method === 'get' ? options : { ...options, body: JSON.stringify(body) }  );
 
     if (!response.ok) {
-      throw new Error(await response.json());
+      throw new Error((await response.json()).message);
     }
 
     return response.json() as Promise<T>;
