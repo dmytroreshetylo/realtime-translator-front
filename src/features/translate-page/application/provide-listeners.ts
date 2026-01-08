@@ -5,6 +5,7 @@ import { getLanguageOptions } from '../shared/get-language-options.util.ts';
 import { removeEmptyLanguage } from '../shared/remove-empty-language.util.ts';
 import { historyService } from '../../../domain/history/history.service.ts';
 import { debounce } from '../../../shared/utils/debounce-time.util.ts';
+import { translateService } from '../../../domain/translate/translate.service.ts';
 
 export function provideTranslatePageListeners(app: Element) {
   const autoTranslateCheckbox = app.querySelector(`#${TranslatePageElementIds.AutoTranslateCheckbox}`);
@@ -28,21 +29,29 @@ export function provideTranslatePageListeners(app: Element) {
     el.innerHTML = getLanguageOptions(availableLanguages, selected);
   }
 
-  const handleTranslate = () => {
+  const handleTranslate = async() => {
+    const result = await translateService.translate(
+      TranslatePageStore.originalText,
+      TranslatePageStore.selectedOriginalLanguage,
+      TranslatePageStore.selectedTranslateLanguage
+    );
+
+    const translatedText = result ?? 'Невідомий переклад';
+
     // TODO: Replace with real translated text
     historyService.addHistory({
       originalLanguage: TranslatePageStore.selectedOriginalLanguage,
       translatedLanguage: TranslatePageStore.selectedTranslateLanguage,
       originalText: TranslatePageStore.originalText,
-      translatedText: 'Перекладений текст'
+      translatedText
     });
 
-    addTranslatedTextToTextarea();
+    addTranslatedTextToTextarea(translatedText);
   };
 
-  const addTranslatedTextToTextarea = () => {
+  const addTranslatedTextToTextarea = (text: string) => {
     // TODO: Replace with real translated text
-    (translateTextarea as HTMLTextAreaElement).value = 'Перекладений текст';
+    (translateTextarea as HTMLTextAreaElement).value = text;
   }
 
 
