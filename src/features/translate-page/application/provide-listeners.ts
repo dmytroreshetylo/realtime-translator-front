@@ -19,8 +19,7 @@ export function provideTranslatePageListeners(app: Element) {
   const spinner = translateButton?.querySelector('.spinner-border');
   const buttonText = translateButton?.querySelector('.button-text');
   const toastEl = app.querySelector('#toast') ;
-  const toastBody = toastEl.querySelector('.toast-body');
-  const toast = new Toast(toastEl);
+  const toastBody = toastEl?.querySelector('.toast-body');
 
   if (
     !autoTranslateCheckbox ||
@@ -37,6 +36,8 @@ export function provideTranslatePageListeners(app: Element) {
   ) {
     throw new Error('TranslatePage: One or more elements not found');
   }
+
+  const toast = new Toast(toastEl);
 
   const showToast = (message: string) => {
     toastBody.textContent = message;
