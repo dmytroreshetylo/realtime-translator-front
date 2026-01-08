@@ -10,11 +10,12 @@ export class HttpService {
     const headers = this.getHeaders();
     const url = ServerPath + path;
 
-    const response = await fetch(url, {
+    const options = {
       method,
       headers,
-      body: JSON.stringify(body),
-    });
+    }
+
+    const response = await fetch(url, method === 'get' ? options : { ...options, body: JSON.stringify(body) }  );
 
     if (!response.ok) {
       throw new Error(await response.json());
@@ -26,7 +27,7 @@ export class HttpService {
   private getHeaders(): Record<string, string> {
     return {
       'Content-Type': 'application/json',
-      'X-User-Identificator': userService.identificator,
+      'uuid': userService.identificator,
     };
   }
 }

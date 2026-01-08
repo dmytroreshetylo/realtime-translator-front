@@ -5,6 +5,13 @@ main.history-page {
   flex-direction: column;
   gap: 0.5rem;
 
+  #spinner-history {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    width: 100%;
+  }
+
   .history-list {
     display: flex;
     flex-direction: column;

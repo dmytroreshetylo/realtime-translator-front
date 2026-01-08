@@ -65,13 +65,6 @@ export function provideTranslatePageListeners(app: Element) {
 
       const translatedText = result ?? 'Невідомий переклад';
 
-      historyService.addHistory({
-        originalLanguage: TranslatePageStore.selectedOriginalLanguage,
-        translatedLanguage: TranslatePageStore.selectedTranslateLanguage,
-        originalText: TranslatePageStore.originalText,
-        translatedText,
-      });
-
       addTranslatedTextToTextarea(translatedText);
     } catch (error) {
       showToast('Помилка перекладу');
