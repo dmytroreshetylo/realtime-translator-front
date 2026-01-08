@@ -15,8 +15,6 @@
     "noPropertyAccessFromIndexSignature": true,
 
     "isolatedModules": true,
-    "importsNotUsedAsValues": "error",
-    "preserveValueImports": true,
 
     "useDefineForClassFields": true,
     "moduleResolution": "bundler",

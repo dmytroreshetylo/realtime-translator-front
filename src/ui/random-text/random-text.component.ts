@@ -26,7 +26,7 @@ export class RandomTextComponent extends HTMLSpanElement {
 
     const index = randomNumber(min, max);
 
-    return this.items[index];
+    return this.items[index] as string;
   }
 
   setItems(items: string[]) {
