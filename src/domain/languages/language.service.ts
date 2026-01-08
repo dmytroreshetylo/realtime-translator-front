@@ -14,7 +14,21 @@ export class LanguageService {
     { code: 'ko', name: 'Корейська' }
   ]
 
-  getLanguages() {
+  isValidCode(code: string): boolean {
+    return this.list.some(c => c.code === code);
+  }
+
+  getName(code: string): string {
+    const name = this.list.find(c => c.code === code)?.name;
+
+    if(!name) {
+      throw Error(`Language ${code} not found`);
+    }
+
+    return name;
+  }
+
+  getLanguages(): LanguageModel[] {
     return this.list;
   }
 }

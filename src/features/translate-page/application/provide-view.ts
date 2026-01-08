@@ -2,16 +2,6 @@ import { TranslatePageElementIds } from '../shared/constants.ts';
 
 export function provideTranslatePageView(app: Element) {
   app.innerHTML = `
-    <div class="toast-container position-fixed top-0 end-0 p-3">
-      <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-          <strong class="me-auto">Помилка</strong>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body"></div>
-      </div>
-    </div>
-
     <form class="main-center w-100">
       <div class="w-100">
         <label class="form-check-label" for="${TranslatePageElementIds.AutoTranslateCheckbox}">Автопереклад</label>

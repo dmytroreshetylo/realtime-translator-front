@@ -1,3 +1,5 @@
 export const LocalStorageKeys = {
-  Identificator: 'identificator'
-}
+  Identificator: 'identificator',
+  OriginalLanguage: 'original-language',
+  TranslateLanguage: 'translate-language',
+};

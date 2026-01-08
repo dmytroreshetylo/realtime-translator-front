@@ -5,7 +5,9 @@ import { getLanguageOptions } from '../shared/get-language-options.util.ts';
 import { removeEmptyLanguage } from '../shared/remove-empty-language.util.ts';
 import { debounce } from '../../../shared/utils/debounce-time.util.ts';
 import { translateService } from '../../../domain/translate/translate.service.ts';
-import { Toast } from 'bootstrap';
+import { localStorageService } from '../../../shared/services/localstorage.service.ts';
+import { LocalStorageKeys } from '../../../shared/constants/localstorage-keys.constant.ts';
+import { toastService } from '../../../shared/services/toast.service.ts';
 
 export function provideTranslatePageListeners(app: Element) {
   const autoTranslateCheckbox: HTMLInputElement | null = app.querySelector(`#${TranslatePageElementIds.AutoTranslateCheckbox}`);
@@ -17,8 +19,6 @@ export function provideTranslatePageListeners(app: Element) {
   const form: HTMLFormElement | null = app.querySelector('form');
   const spinner: HTMLElement | null = translateButton?.querySelector('.spinner-border') as HTMLElement;
   const buttonText: HTMLElement | null = translateButton?.querySelector('.button-text') as HTMLElement;
-  const toastEl: HTMLElement | null = app.querySelector('#toast');
-  const toastBody: HTMLElement | null = toastEl?.querySelector('.toast-body') as HTMLElement;
 
   if (
     !autoTranslateCheckbox ||
@@ -29,19 +29,10 @@ export function provideTranslatePageListeners(app: Element) {
     !translateButton ||
     !form ||
     !spinner ||
-    !buttonText ||
-    !toastEl ||
-    !toastBody
+    !buttonText
   ) {
     throw new Error('TranslatePage: One or more elements not found');
   }
-
-  const toast = new Toast(toastEl);
-
-  const showToast = (message: string) => {
-    toastBody.textContent = message;
-    toast.show();
-  };
 
   const provideLanguageOptions = (el: Element, exceptCode: string, selected: string) => {
     const languages = languageService.getLanguages();
@@ -50,7 +41,6 @@ export function provideTranslatePageListeners(app: Element) {
   };
 
   const handleTranslate = async () => {
-
     spinner.style.display = 'inline-block';
     buttonText.textContent = 'Переклад...';
     translateButton.disabled = true;
@@ -66,8 +56,8 @@ export function provideTranslatePageListeners(app: Element) {
 
       addTranslatedTextToTextarea(translatedText);
     } catch (error) {
-      console.log(error);
-      showToast((error as Error).message || 'Помилка перекладу');
+      toastService.show((error as Error).message);
+      console.error(error);
     } finally {
       spinner.style.display = 'none';
       buttonText.textContent = 'Перекласти';
@@ -99,6 +89,7 @@ export function provideTranslatePageListeners(app: Element) {
 
   const handleOriginalLanguageChange = (event: Event) => {
     TranslatePageStore.selectedOriginalLanguage = (event.target as HTMLSelectElement).value;
+    localStorageService.set(LocalStorageKeys.OriginalLanguage, TranslatePageStore.selectedOriginalLanguage);
     removeEmptyLanguage(originalSelect);
     provideLanguageOptions(
       translateSelect,
@@ -112,6 +103,7 @@ export function provideTranslatePageListeners(app: Element) {
 
   const handleTranslateLanguageChange = (event: Event) => {
     TranslatePageStore.selectedTranslateLanguage = (event.target as HTMLSelectElement).value;
+    localStorageService.set(LocalStorageKeys.TranslateLanguage, TranslatePageStore.selectedTranslateLanguage);
     removeEmptyLanguage(translateSelect);
     provideLanguageOptions(
       originalSelect,
@@ -128,15 +120,4 @@ export function provideTranslatePageListeners(app: Element) {
   originalSelect.addEventListener('change', handleOriginalLanguageChange);
   translateSelect.addEventListener('change', handleTranslateLanguageChange);
   form.addEventListener('submit', handleButtonSubmit);
-
-  provideLanguageOptions(
-    originalSelect,
-    TranslatePageStore.selectedTranslateLanguage,
-    TranslatePageStore.selectedOriginalLanguage,
-  );
-  provideLanguageOptions(
-    translateSelect,
-    TranslatePageStore.selectedOriginalLanguage,
-    TranslatePageStore.selectedTranslateLanguage,
-  );
 }
