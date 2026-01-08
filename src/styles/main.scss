@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+@import 'basic-styles';
+@import 'fade-in-out';
+@import 'header';
+@import 'field';
+@import 'textarea';
+@import 'overrides';
+
+.main-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.main-width {
+  max-width: 40rem;
+  width: 100%;
+}
