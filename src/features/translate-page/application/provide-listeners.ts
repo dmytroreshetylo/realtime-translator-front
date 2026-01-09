@@ -83,7 +83,7 @@ export function provideTranslatePageListeners(app: Element) {
   const handleOriginalTextChange = debounce((event: Event) => {
     TranslatePageStore.originalText = (event.target as HTMLTextAreaElement).value;
     if (TranslatePageStore.autoTranslate) {
-      handleTranslate();
+      buttonText.click();
     }
   }, 300);
 
@@ -97,7 +97,7 @@ export function provideTranslatePageListeners(app: Element) {
       TranslatePageStore.selectedTranslateLanguage,
     );
     if (TranslatePageStore.autoTranslate) {
-      handleTranslate();
+      buttonText.click();
     }
   };
 
@@ -111,7 +111,7 @@ export function provideTranslatePageListeners(app: Element) {
       TranslatePageStore.selectedOriginalLanguage,
     );
     if (TranslatePageStore.autoTranslate) {
-      handleTranslate();
+      buttonText.click();
     }
   };
 
