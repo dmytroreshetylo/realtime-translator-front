@@ -17,6 +17,7 @@ main.history-page {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    overflow-y: auto;
 
     &:has(.no-history) {
       align-items: center;
