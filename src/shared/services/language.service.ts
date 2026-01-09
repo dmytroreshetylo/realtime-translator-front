@@ -1,4 +1,4 @@
-import type { LanguageModel } from './language.model.ts';
+import type { LanguageModel } from '../../entities/languages/language.model.ts';
 
 export class LanguageService {
   private readonly list: LanguageModel[]  = [

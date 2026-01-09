@@ -1,6 +1,6 @@
-import { httpService } from '../../shared/services/http.service.ts';
-import type { HistoryModel } from './history.model.ts';
-import type { PaginatedListModel } from '../../shared/models/paginated-list.model.ts';
+import { httpService } from './http.service.ts';
+import type { HistoryModel } from '../../entities/history/history.model.ts';
+import type { PaginatedListModel } from '../models/paginated-list.model.ts';
 
 export class HistoryService {
   getHistoryList(from: number, to: number): Promise<PaginatedListModel<HistoryModel>> {

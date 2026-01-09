@@ -1,4 +1,4 @@
-import { httpService } from '../../shared/services/http.service.ts';
+import { httpService } from './http.service.ts';
 
 export class TranslateService {
   translate(text: string, originalLanguage: string, translateLanguage: string): Promise<string | undefined> {

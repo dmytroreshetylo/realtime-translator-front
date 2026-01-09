@@ -4,7 +4,7 @@ import { provideTranslatePageListeners } from './application/provide-listeners.t
 import { localStorageService } from '../../shared/services/localstorage.service.ts';
 import { LocalStorageKeys } from '../../shared/constants/localstorage-keys.constant.ts';
 import { TranslatePageStore } from './application/store.ts';
-import { languageService } from '../../domain/languages/language.service.ts';
+import { languageService } from '../../shared/services/language.service.ts';
 import { getLanguageOptions } from './shared/get-language-options.util.ts';
 import { TranslatePageElementIds } from './shared/constants.ts';
 import { toastService } from '../../shared/services/toast.service.ts';

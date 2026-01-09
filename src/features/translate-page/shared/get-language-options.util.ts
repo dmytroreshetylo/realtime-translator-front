@@ -1,4 +1,4 @@
-import type { LanguageModel } from '../../../domain/languages/language.model.ts';
+import type { LanguageModel } from '../../../entities/languages/language.model.ts';
 
 export function getLanguageOptions(languages: LanguageModel[], selected: string): string {
   const options = languages.map((l: LanguageModel) => {

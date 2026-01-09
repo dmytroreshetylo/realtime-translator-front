@@ -1,8 +1,8 @@
 import './page.component.scss';
-import { historyService } from '../../domain/history/history.service.ts';
-import type { HistoryModel } from '../../domain/history/history.model.ts';
+import { historyService } from '../../shared/services/history.service.ts';
+import type { HistoryModel } from '../../entities/history/history.model.ts';
 import { toastService } from '../../shared/services/toast.service.ts';
-import { languageService } from '../../domain/languages/language.service.ts';
+import { languageService } from '../../shared/services/language.service.ts';
 
 const PAGE_SIZE = 10;
 
