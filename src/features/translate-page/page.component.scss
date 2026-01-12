@@ -8,11 +8,6 @@ main.translate-page {
   width: 100%;
 
   section {
-    @include mixins.media-screen('max', variables.$min-table-width) {
-      gap: 0.5rem;
-      flex-direction: column;
-    }
-
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -20,6 +15,11 @@ main.translate-page {
 
     & > div {
       flex: 1;
+    }
+
+    @include mixins.media-screen('max', variables.$min-table-width) {
+      gap: 0.5rem;
+      flex-direction: column;
     }
   }
 }
